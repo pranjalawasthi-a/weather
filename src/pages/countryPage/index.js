@@ -8,22 +8,19 @@ const CountriesPage = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [displayMode, setDisplayMode] = useState("table");
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(25); // Default limit
+    const [itemsPerPage, setItemsPerPage] = useState(25); 
     const router = useRouter();
 
     useEffect(() => {
         fetchCountries().then(setCountryList);
     }, []);
 
-    // Filter countries based on search query
     const filteredCountries = countryList.filter((country) =>
         country.name?.common?.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    // Calculate total pages
     const totalPages = Math.ceil(filteredCountries.length / itemsPerPage);
 
-    // Slice the list based on current page and items per page
     const paginatedCountries = filteredCountries.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
@@ -33,7 +30,6 @@ const CountriesPage = () => {
         router.push(`/weather/${encodeURIComponent(country.name.common)}`);
     };
 
-    // Handle next and previous buttons
     const nextPage = () => {
         if (currentPage < totalPages) setCurrentPage(currentPage + 1);
     };
@@ -42,10 +38,9 @@ const CountriesPage = () => {
         if (currentPage > 1) setCurrentPage(currentPage - 1);
     };
 
-    // Handle items per page change
     const handleItemsPerPageChange = (e) => {
         setItemsPerPage(Number(e.target.value));
-        setCurrentPage(1); // Reset to first page when changing limit
+        setCurrentPage(1); 
     };
 
     return (
@@ -80,7 +75,6 @@ const CountriesPage = () => {
                     </button>
                 </div>
 
-                {/* Items per page dropdown */}
                 <div className={styles.paginationControls}>
                     <label htmlFor="itemsPerPage">Show: </label>
                     <select id="itemsPerPage" value={itemsPerPage} onChange={handleItemsPerPageChange}>
@@ -145,7 +139,6 @@ const CountriesPage = () => {
                 </div>
             )}
 
-            {/* Pagination Controls */}
             <div className={styles.paginationContainer}>
                 <button onClick={prevPage} disabled={currentPage === 1}>
                     Previous

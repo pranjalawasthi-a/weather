@@ -1,5 +1,4 @@
 
-// utils/api.js
 
 const fetchCountries = async () => {
   const response = await fetch("https://restcountries.com/v3.1/all");
@@ -14,5 +13,4 @@ const fetchWeather = async (capital) => {
   return response.json();
 };
 
-// Use named exports instead of default export
 export { fetchCountries, fetchWeather };
