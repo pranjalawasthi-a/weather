@@ -1,0 +1,54 @@
+
+
+.mt20{
+    margin-top: 20px;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+.functionalityContainer{
+    display: flex;
+    gap: 20px;
+}
+.buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.button{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 9px;
+    
+}
+.blackButton{
+    background-color: #000;
+    color: #fff;
+    
+}
+.whiteButton{
+    background-color: #989898;
+    color: #000;
+}
+
+.table {
+    width: 100%;
+    margin-top: 40px;
+    border-collapse: collapse;
+    border: none;
+}
+
+.table th, 
+.table td {
+    border: none; 
+    padding: 8px;
+    text-align: left;
+}
+
+.table thead {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+}
